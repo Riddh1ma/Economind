@@ -88,12 +88,12 @@ function updateChart() {
             datasets: [{
                 data: Object.values(categoryTotals), // Amounts (data)
                 backgroundColor: [
-                    '#3498db',
-                    '#2ecc71',
-                    '#e74c3c',
-                    '#f1c40f',
-                    '#9b59b6',
-                    '#1abc9c'
+                    '#3498db', // Blue
+                    '#2ecc71', // Green
+                    '#e74c3c', // Red
+                    '#f1c40f', // Yellow
+                    '#9b59b6', // Purple
+                    '#1abc9c'  // Teal
                 ]
             }]
         },
@@ -167,4 +167,3 @@ function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
 }
-
