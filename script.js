@@ -56,7 +56,7 @@ function updateExpenseTable() {
             <td>${formatDate(expense.date)}</td>
             <td>${expense.category}</td>
             <td>${expense.description}</td>
-            <td>₹${expense.amount.toFixed(2)}</td>
+            <td>₹${expense.amount.toFixed(2)}</td> <!-- Display as Indian Rupees -->
         `;
         expenseTableBody.appendChild(row);
     });
@@ -112,7 +112,7 @@ function updateChart() {
 // Update total expenses
 function updateTotalExpenses() {
     const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-    totalAmountElement.textContent = `₹${total.toFixed(2)}`;
+    totalAmountElement.textContent = `₹${total.toFixed(2)}`; // Display total in Indian Rupees
 }
 
 // Generate spending suggestions
