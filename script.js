@@ -1,6 +1,6 @@
 // Initialize expenses array from localStorage or create empty array
 let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
-let expenseChart = null;
+let expenseChart = null; // Store the chart instance
 
 // DOM Elements
 const expenseForm = document.getElementById('expenseForm');
@@ -56,7 +56,7 @@ function updateExpenseTable() {
             <td>${formatDate(expense.date)}</td>
             <td>${expense.category}</td>
             <td>${expense.description}</td>
-            <td>₹${expense.amount.toFixed(2)}</td>
+            <td>$${expense.amount.toFixed(2)}</td>
         `;
         expenseTableBody.appendChild(row);
     });
@@ -80,13 +80,13 @@ function updateChart() {
         expenseChart.destroy();
     }
     
-    // Create new chart
+    // Create new pie chart
     expenseChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: Object.keys(categoryTotals),
+            labels: Object.keys(categoryTotals), // Categories (labels)
             datasets: [{
-                data: Object.values(categoryTotals),
+                data: Object.values(categoryTotals), // Amounts (data)
                 backgroundColor: [
                     '#3498db',
                     '#2ecc71',
@@ -112,7 +112,7 @@ function updateChart() {
 // Update total expenses
 function updateTotalExpenses() {
     const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-    totalAmountElement.textContent = ₹${total.toFixed(2)};
+    totalAmountElement.textContent = `$${total.toFixed(2)}`;
 }
 
 // Generate spending suggestions
@@ -167,3 +167,4 @@ function formatDate(dateString) {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
 }
+
