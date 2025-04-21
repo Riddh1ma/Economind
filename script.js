@@ -112,7 +112,7 @@ function updateChart() {
 // Update total expenses
 function updateTotalExpenses() {
     const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
-    totalAmountElement.textContent = `₹{total.toFixed(2)}`; // Display total in Indian Rupees
+    totalAmountElement.textContent = `₹`₹{total.toFixed(2)}`; // Display total in Indian Rupees
 }
 
 // Generate spending suggestions
